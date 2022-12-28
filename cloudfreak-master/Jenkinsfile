@@ -15,14 +15,14 @@ pipeline {
         stage('Copy Artifact') {
            steps { 
                    sh 'pwd'
-		   sh 'cp -r cloudfreak-master/target/*.jar docker'
+		   sh 'cp -r cloudfreak-master/target/*.jar Docker'
            }
         }
          
         stage('Build docker image') {
            steps {
                script {         
-                 def customImage = docker.build('hbadre96/petclinic', "./docker")
+                 def customImage = docker.build('hbadre96/petclinic', "./Docker")
                  docker.withRegistry('https://registry.hub.docker.com', 'DockerHub') {
                  customImage.push("${env.BUILD_NUMBER}")
                  }                     
