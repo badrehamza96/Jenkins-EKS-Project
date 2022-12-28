@@ -1,5 +1,5 @@
 pipeline {
-  agent {label 'MySlave'}
+  agent {label 'performant-jenkins-slave'}
     tools {
       maven 'maven3'
                  jdk 'JDK17'
